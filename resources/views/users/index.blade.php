@@ -63,12 +63,14 @@
 
 
                             <td>
-                                <a href="{{ route('users.edit', $b->id) }}" ><button class="h-fit min-h-fit py-2 px-4 btn btn-info text-white">Edit</button></a>
-                                <form action="{{ route('users.destroy', $b->id) }}" method="POST" style="display: inline-block;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="h-fit min-h-fit py-2 px-4 btn btn-error text-white" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
-                                </form>
+                                <div class="flex items-center gap-2">
+                                    <a href="{{ route('users.edit', $b->id) }}" ><button class="h-fit min-h-fit py-2 px-4 btn btn-info text-white">Edit</button></a>
+                                    <form action="{{ route('users.destroy', $b->id) }}" method="POST" style="display: inline-block;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="h-fit min-h-fit py-2 px-4 btn btn-error text-white" onclick="return confirm('Are you sure you want to delete this user?')">Delete</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
 
