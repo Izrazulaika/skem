@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.table :where(thead tr, tbody tr:not(:last-child),tbody tr:first-child:last-child){
+    border-bottom-color: #d1d1d1;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%); /* Change the color of the default calendar icon to black */
+  }
+
