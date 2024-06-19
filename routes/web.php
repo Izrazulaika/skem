@@ -6,14 +6,21 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BorrowController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ChildrenController;
+use App\Http\Controllers\PenaltyController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
 
@@ -50,7 +57,26 @@ Route::middleware('auth')->group(function () {
     Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
 
+    Route::get('/borrows', [BorrowController::class, 'index'])->name('borrow.index');
+    Route::get('/borrows/create', [BorrowController::class, 'create'])->name('borrow.create');
+    Route::post('/borrows/store', [BorrowController::class, 'store'])->name('borrow.store');
+    Route::post('/borrows/search-student', [BorrowController::class, 'searchStudent'])->name('borrow.searchStudent');
+    Route::post('/borrows/books-list', [BorrowController::class, 'listBooks'])->name('borrow.bookList');
+    Route::delete('/borrows/{borrow}', [BorrowController::class, 'destroy'])->name('borrow.destroy');
+    Route::get('/borrows/{borrow}/edit', [BorrowController::class, 'edit'])->name('borrow.edit');
+    Route::put('/borrows/{borrow}', [BorrowController::class, 'update'])->name('borrow.update');
 
+    Route::get('/children', [ChildrenController::class, 'index'])->name('children.index');
+    Route::get('/children/borrows', [ChildrenController::class, 'parentRecord'])->name('children.parentBorrows');
+    Route::get('/children/borrows/{borrow}/details', [ChildrenController::class, 'edit'])->name('children.recordDetail');
+
+    Route::get('/penalties', [PenaltyController::class, 'index'])->name('penalties.index');
+    Route::get('/penalties/parent', [PenaltyController::class, 'parentIndex'])->name('penalties-parent.index');
+    Route::get('/penalties/create', [PenaltyController::class, 'create'])->name('penalties.create');
+    Route::post('/penalties', [PenaltyController::class, 'store'])->name('penalties.store');
+    Route::get('/penalties/{penalty}/edit', [PenaltyController::class, 'edit'])->name('penalties.edit');
+    Route::put('/penalties/{penalty}', [PenaltyController::class, 'update'])->name('penalties.update');
+    Route::delete('/penalties/{penalty}', [PenaltyController::class, 'destroy'])->name('penalties.destroy');
 
 });
 

@@ -8,19 +8,6 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
-        <!-- Student Name Dropdown -->
-        <div class="mt-4">
-            <x-input-label for="student_id" :value="__('Select Child\'s Name')" />
-            <select id="student_id" name="student_id" class="block mt-1 w-full rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                @foreach ($students as $student)
-                    <option value="{{ $student->id }}">{{ $student->name }}</option>
-                @endforeach
-            </select>
-
-            <x-input-error :messages="$errors->get('student_id')" class="mt-2" />
-        </div>
-
-
 
         <!-- Email Address -->
         <div class="mt-4">
@@ -28,7 +15,7 @@
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
-        
+
 
         <!-- Password -->
         <div class="mt-4">

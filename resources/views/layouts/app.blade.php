@@ -34,36 +34,69 @@
             </div>
             <ul class="p-4">
                 <li>
-                    <a href="{{ route('dashboard') }}"  class="transition-all flex items-center gap-2 py-3 text-blue-900 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->is('dashboard*') ? 'bg-blue-100' : '' }}">
+                    <a href="{{ route('dashboard') }}"  class="transition-all flex items-center gap-2 py-3 text-blue-900 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->routeIs('dashboard') ? 'bg-blue-100' : '' }}">
                         <x-fas-house class="w-4 h-4 text-blue-900"/>
                         Dashboard
                     </a>
                 </li>
                 @if(Auth::user()->role == 'admin')
                 <li>
-                    <a href="{{ route('categories.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->is('categories*') ? 'bg-blue-100' : '' }}">
+                    <a href="{{ route('categories.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->routeIs('categories.index') ? 'bg-blue-100' : '' }}">
                         <x-fas-layer-group class="w-4 h-4 text-blue-900"/>
                         Manage Categories
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('book.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->is('book*') ? 'bg-blue-100' : '' }}">
+                    <a href="{{ route('book.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->routeIs('book.index') ? 'bg-blue-100' : '' }}">
                         <x-fas-book class="w-4 h-4 text-blue-900"/>
                         Manage Books
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('users.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->is('users*') ? 'bg-blue-100' : '' }}">
+                    <a href="{{ route('users.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->routeIs('users.index') ? 'bg-blue-100' : '' }}">
                         <x-fas-users class="w-4 h-4 text-blue-900"/>
                         Manage Users
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('students.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->is('students*') ? 'bg-blue-100' : '' }}">
+                    <a href="{{ route('students.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->routeIs('students.index') ? 'bg-blue-100' : '' }}">
                         <x-fas-graduation-cap class="w-4 h-4 text-blue-900"/>
                         Manage Students
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('borrow.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->routeIs('borrow.index') ? 'bg-blue-100' : '' }}">
+                        <x-fas-book-open class="w-4 h-4 text-blue-900"/>
+                        Manage Borrow
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('penalties.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->routeIs('penalties.index') ? 'bg-blue-100' : '' }}">
+                        <x-fas-sack-dollar class="w-4 h-4 text-blue-900"/>
+                        Manage Penalties
+                    </a>
+                </li>
+                @endif
+                @if(Auth::user()->role == 'parent')
+                <li>
+                    <a href="{{ route('children.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->routeIs('children.index') ? 'bg-blue-100' : '' }}">
+                        <x-fas-child class="w-4 h-4 text-blue-900"/>
+                        My Children
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('children.parentBorrows') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->routeIs('children.parentBorrows') ? 'bg-blue-100' : '' }}">
+                        <x-fas-book-open class="w-4 h-4 text-blue-900"/>
+                        Borrow Records
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('penalties-parent.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->routeIs('penalties-parent.index') ? 'bg-blue-100' : '' }}">
+                        <x-fas-sack-dollar class="w-4 h-4 text-blue-900"/>
+                        View Penalties
+                    </a>
+                </li>
+
                 @endif
                 <!-- Add more sidebar links as needed -->
                 <li>

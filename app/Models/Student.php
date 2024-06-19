@@ -20,4 +20,9 @@ class Student extends Model
     {
         return $this->belongsTo(User::class, 'parent_id');
     }
+
+    public function borrowRecords()
+    {
+        return $this->hasMany(BorrowRecord::class);
+    }
 }

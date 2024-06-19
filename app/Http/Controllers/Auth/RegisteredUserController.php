@@ -34,7 +34,6 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'student_id' => ['required', 'exists:students,id'], // Validate student_id
             //'student_name' => ['nullable', 'string', 'max:255'], Add validation for student_name
         ]);
 
@@ -42,7 +41,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'student_id' => $request->student_id, // Save student_name
+            'role' => 'admin', // Save student_name
         ]);
 
         event(new Registered($user));
