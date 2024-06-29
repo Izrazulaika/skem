@@ -5,8 +5,6 @@
     <x-slot name="header"></x-slot>
     <div class="container">
 
-
-
         <div class="card w-full base-100 mt-5 mb-5 border border-gray-300">
             <div class="card-title bg-blue-500 text-white px-4 py-3 rounded-t-lg">
                 <div class="flex items-center justify-between w-full">
@@ -30,8 +28,6 @@
                         <button type="button" class="btn-clear float-right" aria-label="Close"><x-fas-circle-xmark class="w-4 h-4 text-white"/></button>
                     </div>
                 @endif
-
-
 
                 <form action="{{ route('book.update', $book->id) }}" method="POST" class="form-group">
                     @csrf

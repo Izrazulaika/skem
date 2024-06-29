@@ -58,6 +58,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/users/{user}', [UserController::class, 'update'])->name('users.update');
 
     Route::get('/borrows', [BorrowController::class, 'index'])->name('borrow.index');
+    Route::get('/reports', [BorrowController::class, 'reportIndex'])->name('report.index');
+    Route::post('/report/export', [BorrowController::class, 'export'])->name('report.export');
     Route::get('/borrows/create', [BorrowController::class, 'create'])->name('borrow.create');
     Route::post('/borrows/store', [BorrowController::class, 'store'])->name('borrow.store');
     Route::post('/borrows/search-student', [BorrowController::class, 'searchStudent'])->name('borrow.searchStudent');

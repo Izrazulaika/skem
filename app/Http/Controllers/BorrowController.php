@@ -12,6 +12,8 @@ use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\BorrowRecordsExport;
 
 class BorrowController extends Controller
 {
@@ -22,6 +24,31 @@ class BorrowController extends Controller
         return view('borrow.index', compact('borrowRecords', 'page'));
     }
 
+    public function reportIndex(Request $request)
+    {
+        $query = BorrowRecord::with('student', 'borrowItems.book');
+
+        if ($request->has('start_date') && $request->start_date) {
+            $query->whereDate('borrow_start_date', '>=', $request->start_date);
+        }
+
+        if ($request->has('end_date') && $request->end_date) {
+            $query->whereDate('borrow_end_date', '<=', $request->end_date);
+        }
+
+        $borrowRecords = $query->paginate(6);
+        $page = $borrowRecords->currentPage();
+
+        return view('report.index', compact('borrowRecords', 'page'));
+    }
+
+    public function export(Request $request)
+    {
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
+
+        return Excel::download(new BorrowRecordsExport($start_date, $end_date), 'borrow_records.xlsx');
+    }
 
     public function create()
     {

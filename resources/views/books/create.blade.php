@@ -1,10 +1,7 @@
+<!--create.blade.php-->
 <x-app-layout>
-
     <x-slot name="header"></x-slot>
     <div class="container">
-
-
-
         <div class="card w-full base-100 mt-5 mb-5 border border-gray-300">
             <div class="card-title bg-blue-500 text-white px-4 py-3 rounded-t-lg">
                 <div class="flex items-center justify-between w-full">
@@ -13,7 +10,6 @@
                 </div>
             </div>
             <div class="card-body">
-
                 @if (session('success'))
                     <div role="alert" class="alert alert-success">
                         <x-fas-circle-check class="w-4 h-4 text-white"/>
@@ -30,7 +26,7 @@
                 @endif
 
 
-
+                <!--enter subject-->
                 <form action="{{ route('book.store') }}" method="POST" class="form-group">
                     @csrf
 
@@ -40,26 +36,28 @@
                         <input type="text" class="grow text-black" placeholder="Subject" name="subject" required/>
                     </label>
                     <br />
+                    <!--enter isbn-->
                     <label for="isbn" class="text-black">ISBN:</label>
                     <label class="input input-bordered bg-white flex items-center gap-2 mt-2">
                         <x-fas-book class="w-4 h-4 opacity-70 text-black"/>
                         <input type="text" class="grow text-black" placeholder="ISBN" name="isbn" required/>
                     </label>
                     <br />
+                    <!--enter title of books-->
                     <label for="title" class="text-black">Title:</label>
                     <label class="input input-bordered bg-white flex items-center gap-2 mt-2">
                         <x-fas-font class="w-4 h-4 opacity-70 text-black"/>
                         <input type="text" class="grow text-black" placeholder="Title" name="title" required/>
                     </label>
-
                     <br />
+                    <!--enter record date-->
                     <label for="record_date" class="text-black">Record Date:</label>
                     <label class="input input-bordered bg-white flex items-center gap-2 mt-2">
                         <x-fas-calendar class="w-4 h-4 opacity-70 text-black"/>
                         <input type="date" class="w-full text-black" placeholder="Record Date" name="record_date" required/>
                     </label>
-
                     <br />
+                    <!--Select category-->
                     <label for="category_id" class="text-black">Catgeory:</label>
                     <label class="input input-bordered bg-white flex items-center gap-2 mt-2">
                         <x-fas-calendar class="w-4 h-4 opacity-70 text-black"/>
@@ -71,15 +69,11 @@
                                 @endforeach
                             @endif
                         </select>
-
                     </label>
-
                     <button type="submit" class="btn btn-info btn-md bg-blue-500 text-white mt-4">Add Book</button>
                 </form>
-
             </div>
         </div>
-
     </div>
 
 </x-app-layout>

@@ -27,8 +27,6 @@
                     </div>
                 @endif
 
-
-
                 <div id="studentInfo">
 
                     <form action="{{ route('borrow.update', $borrow->id) }}" method="POST" class="form-group">

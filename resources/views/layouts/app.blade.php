@@ -29,7 +29,7 @@
             <div class="flex items-center justify-center pt-5 pb-5 px-4 border-b bg-blue-600">
                 <img src="{{ asset('pictures/skemlogo.png') }}" alt="Logo" class="h-8 mr-2">
                 <h2 class="font-semibold text-xl leading-tight text-white">
-                    {{ __('SKEMTMS') }}
+                    {{ __('SKEMTEXT') }}
                 </h2>
             </div>
             <ul class="p-4">
@@ -70,10 +70,17 @@
                         Manage Borrow
                     </a>
                 </li>
+
                 <li>
                     <a href="{{ route('penalties.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->routeIs('penalties.index') ? 'bg-blue-100' : '' }}">
                         <x-fas-sack-dollar class="w-4 h-4 text-blue-900"/>
                         Manage Penalties
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('report.index') }}" class="transition-all flex items-center gap-2 text-blue-900 py-3 font-bold hover:bg-yellow-400 px-2 rounded-[10px] hover:text-black {{ request()->routeIs('report.index') ? 'bg-blue-100' : '' }}">
+                        <x-fas-file class="w-4 h-4 text-blue-900"/>
+                        Report
                     </a>
                 </li>
                 @endif
@@ -119,7 +126,7 @@
                     <div class="flex items-center hidden">
                         <img src="{{ asset('pictures/skemlogo.png') }}" alt="Logo" class="h-8 mr-2">
                         <h2 class="font-semibold text-xl leading-tight text-white">
-                            {{ __('SKEMTMS') }}
+                            {{ __('SKEMTEXT') }}
                         </h2>
                     </div>
                         <!-- Log out link -->

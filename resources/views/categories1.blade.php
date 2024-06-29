@@ -128,7 +128,7 @@
 </head>
 <body>
 <header>
-        <div class="school-name">SKEMTMS</div>
+        <div class="school-name">SKEMTEXT</div>
         <nav>
             @auth
                 <a href="{{ url('/dashboard') }}">Dashboard</a>

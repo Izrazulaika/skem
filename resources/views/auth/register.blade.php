@@ -1,4 +1,14 @@
 <x-guest-layout>
+
+    <!-- Logo -->
+    <div class="flex justify-center items-center mb-8">
+        <img src="{{ asset('pictures/skemlogo.png') }}" alt="Logo" class="h-20 w-auto">
+    </div>
+
+    <div class="text-center mb-8">
+        <div class="text-sm text-dark-600 font-bold mb-2">REGISTER FORM</div>
+    </div>
+    
     <form method="POST" action="{{ route('register') }}">
         @csrf
         <!-- Name -->

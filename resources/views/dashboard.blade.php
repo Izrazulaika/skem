@@ -9,7 +9,7 @@
                 <div class="flex items-center">
                     <img src="{{ asset('pictures/skemlogo.png') }}" alt="Logo" class="h-8 mr-2">
                     <h2 class="font-semibold text-xl leading-tight">
-                        {{ __('SKEMTMS') }}
+                        {{ __('SKEMTEXT') }}
                     </h2>
                 </div>
 

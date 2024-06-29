@@ -2,21 +2,26 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <div class="text-center mb-4">
+    <!-- Logo -->
+    <div class="flex justify-center items-center mb-8">
+        <img src="{{ asset('pictures/skemlogo.png') }}" alt="Logo" class="h-20 w-auto">
+    </div>
+
+    <div class="text-center mb-8">
     <div class="text-sm text-dark-600 font-bold mb-2">LOGIN FORM</div>
     </div>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <!-- Email Address -->
+        <!-- user enter Email Address -->
         <div>
             <x-input-label for="email" :value="('Email')" style="color: black; font-family: Arial, sans-serif;" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username"/>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!-- Password -->
+        <!-- user enter Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="('Password')" style="color: black; font-family: Arial, sans-serif;"/>
 

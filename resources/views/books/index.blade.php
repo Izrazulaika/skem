@@ -1,9 +1,6 @@
 <x-app-layout>
-
     <x-slot name="header"></x-slot>
-
     <div class="container">
-
         <div class="flex items-center justify-between">
             <h2 class="text-bold text-2xl text-black">Books</h2>
             <a href="{{ route('book.create') }}" ><button class="h-fit min-h-fit py-2 px-4 btn btn-info text-white">Add</button></a>

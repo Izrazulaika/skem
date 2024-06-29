@@ -1,5 +1,4 @@
 <x-app-layout>
-
     <x-slot name="header"></x-slot>
     <div class="container">
 
@@ -33,14 +32,9 @@
                         <x-fas-layer-group class="w-4 h-4 opacity-70 text-black"/>
                         <input type="text" class="grow text-black" placeholder="Enter Student ID" name="student_id" id="student_id" />
                     </label>
-
                     <button type="button" id="searchButton" class="btn btn-info btn-md bg-blue-500 text-white mt-1">Search</button>
-
                 </div>
-
-                <hr />
-
-
+                <hr/>
                 <div id="studentInfo" style="display: none;">
 
                     <form action="{{ route('borrow.store') }}" method="POST" class="form-group">
